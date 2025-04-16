@@ -1,0 +1,2 @@
+# Bluetooth
+ro.vendor.bt.bdaddr_path=/vendor/efs/bluetooth/bt_addr

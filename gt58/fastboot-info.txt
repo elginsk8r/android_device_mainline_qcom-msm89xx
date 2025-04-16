@@ -1,0 +1,6 @@
+version 1
+flash hidden boot.img
+flash system
+flash cache vendor.img
+if-wipe erase userdata
+if-wipe erase fota

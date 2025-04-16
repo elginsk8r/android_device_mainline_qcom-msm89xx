@@ -1,0 +1,88 @@
+<audiohal>
+    <mixer card="0">
+        <init>
+            <ctl name="Master Playback Volume" val="8"/>
+            <ctl name="Capture Volume" val="8"/>
+        </init>
+    </mixer>
+    <device name="earpiece">
+        <path name="on">
+            <!-- No matching controls found automatically -->
+        </path>
+        <path name="off"/>
+        <path name="pcm_on">
+            <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" val="1"/>
+        </path>
+        <path name="pcm_off">
+            <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" val="0"/>
+        </path>
+    </device>
+    <device name="speaker">
+        <path name="on">
+            <!-- No matching controls found automatically -->
+        </path>
+        <path name="off"/>
+        <path name="pcm_on">
+            <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" val="1"/>
+        </path>
+        <path name="pcm_off">
+            <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" val="0"/>
+        </path>
+    </device>
+    <device name="headphone">
+        <path name="on">
+            <!-- No matching controls found automatically -->
+        </path>
+        <path name="off"/>
+        <path name="pcm_on">
+            <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" val="1"/>
+        </path>
+        <path name="pcm_off">
+            <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" val="0"/>
+        </path>
+    </device>
+    <device name="mic">
+        <path name="on">
+            <!-- No matching controls found automatically -->
+        </path>
+        <path name="off"/>
+        <path name="pcm_on">
+            <ctl name="TERT_MI2S_TX Audio Mixer MultiMedia1" val="1"/>
+        </path>
+        <path name="pcm_off">
+            <ctl name="TERT_MI2S_TX Audio Mixer MultiMedia1" val="0"/>
+        </path>
+    </device>
+    <device name="bt-sco">
+        <path name="on">
+            <!-- No matching controls found automatically -->
+        </path>
+        <path name="off"/>
+        <path name="pcm_on">
+            <ctl name="INT_BT_RX Audio Mixer MultiMedia1" val="1"/>
+        </path>
+        <path name="pcm_off">
+            <ctl name="INT_BT_RX Audio Mixer MultiMedia1" val="0"/>
+        </path>
+    </device>
+    <device name="bt-sco-mic">
+        <path name="on">
+            <!-- No matching controls found automatically -->
+        </path>
+        <path name="off"/>
+        <path name="pcm_on">
+            <ctl name="INT_BT_TX Audio Mixer MultiMedia1" val="1"/>
+        </path>
+        <path name="pcm_off">
+            <ctl name="INT_BT_TX Audio Mixer MultiMedia1" val="0"/>
+        </path>
+    </device>
+    <stream type="pcm" dir="out" card="0" device="0">
+        <enable path="pcm_on"/>
+        <disable path="pcm_off"/>
+    </stream>
+    <stream type="pcm" dir="in" card="0" device="0">
+        <enable path="pcm_on"/>
+        <disable path="pcm_off"/>
+    </stream>
+</audiohal>

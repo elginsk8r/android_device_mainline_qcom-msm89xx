@@ -4,6 +4,12 @@
 //
 
 prebuilt_etc {
+    name: "audio.gt58.xml",
+    src: "audio.gt58.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "audio.mi8953_a.xml",
     src: "audio.mi8953_a.xml",
     vendor: true,

@@ -33,3 +33,10 @@
 - The target is 32-bit, which requires the following changes to be made in AOSP tree in order to boot:
   1. On `packages/modules/Connectivity/bpf/loader/NetBpfLoad.cpp`, locate to the next line of the line containing `[Arm] 64-bit userspace required on 6.2+ kernels (%d).` (which should be `return 1;`), remove the line.
   2. On `system/netd/server/XfrmController.cpp`, in function `validateResponse`, replace the `return` statement containing `Error netlink message` with `return netdutils::status::ok;`.
+
+## Notes for `gt58` target
+
+- The target may boot only on Galaxy Tab A 8.0 SM-T350 as of now.
+- The target uses a custom partition layout:
+  1. `hidden` -> `/boot`
+  2. `cache` -> `/vendor`
