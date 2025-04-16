@@ -22,6 +22,14 @@ TARGET_SCREEN_WIDTH := 768
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.1 \
+    android.hardware.fastboot@1.1-impl-mock \
+    fastbootd
+
+TARGET_BOARD_FASTBOOT_INFO_FILE := $(TARGET_DEVICE_PATH)/fastboot-info.txt
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.gt58 \
@@ -43,6 +51,8 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(TARGET_DEVICE_PATH)/overlays/overlay
 
 # Partitions
+PRODUCT_BUILD_SUPER_PARTITION := true
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
 # SoC

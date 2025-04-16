@@ -1,0 +1,10 @@
+# fastboot-info for lineage_gt58
+version 1
+flash hidden boot.img
+reboot fastboot
+update-super
+flash system
+flash vendor
+if-wipe erase cache
+if-wipe erase userdata
+if-wipe erase fota
