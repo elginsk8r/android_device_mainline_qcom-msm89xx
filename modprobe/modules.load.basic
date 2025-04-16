@@ -1,3 +1,4 @@
+mdt_loader.ko
 pm8916_bms_vm.ko
 pm8916_lbc.ko
 max17042_battery.ko

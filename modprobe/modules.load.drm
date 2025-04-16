@@ -1,2 +1,9 @@
+cec.ko
+drm_display_helper.ko
+drm_exec.ko
+drm_gpuvm.ko
+gpu-sched.ko
 msm.ko
 panel-samsung-s6d7aa0.ko
+ubwc_config.ko
+
