@@ -4,21 +4,21 @@
 //
 
 prebuilt_etc {
-    name: "init.mi89xx.rc",
-    src: "init.mi89xx.rc",
+    name: "init.mi8916.rc",
+    src: "init.mi8916.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "init.recovery.mi89xx.rc",
-    src: "init.recovery.mi89xx.rc",
+    name: "init.recovery.mi8916.rc",
+    src: "init.recovery.mi8916.rc",
     sub_dir: "init",
     recovery: true,
 }
 
 prebuilt_etc {
-    name: "ueventd.mi89xx.rc",
-    src: "ueventd.mi89xx.rc",
+    name: "ueventd.mi8916.rc",
+    src: "ueventd.mi8916.rc",
     vendor: true,
 }

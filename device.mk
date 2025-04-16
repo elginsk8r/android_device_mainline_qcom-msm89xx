@@ -3,89 +3,59 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/mi89xx-mainline
+TARGET_DEVICE_PATH := device/xiaomi/mi8916
 
-# Inherit from mainline/qcom-common
-$(call inherit-product, device/mainline/qcom-common/mainline_qcom-common.mk)
+# Inherit from parent
+$(call inherit-product, device/qcom/msm89xx-common/common.mk)
 
-# Bluetooth
-ifneq ($(PRODUCT_IS_ATV),true)
-ifneq ($(PRODUCT_IS_AUTOMOTIVE),true)
-# Set the Bluetooth Class of Device
-# Service Field: 0x5A -> 90
-#    Bit 17: Networking
-#    Bit 19: Capturing
-#    Bit 20: Object Transfer
-#    Bit 22: Telephony
-# MAJOR_CLASS: 0x02 -> 2 (Phone)
-# MINOR_CLASS: 0x0C -> 12 (Smart Phone)
-PRODUCT_ODM_PROPERTIES += \
-    bluetooth.device.class_of_device=90,2,12
-endif
-endif
+# AAPT
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-# Bootanimation
+# Audio
+TARGET_AUDIO_MAINLINE_UCM_PROFILES := wt88047
+
+# Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
-# Disable
-TARGET_SUPPORTS_SUSPEND ?= false
-
-# HIDL
-PRODUCT_PACKAGES += \
-    vndservicemanager
+# Dalvik heap
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Init
 PRODUCT_PACKAGES += \
-    init.mi89xx.rc \
-    init.recovery.mi89xx.rc \
-    ueventd.mi89xx.rc
+    fstab.mi8916 \
+    fstab.mi8916.ramdisk \
+    init.mi8916.rc \
+    init.recovery.mi8916.rc \
+    ueventd.mi8916.rc
 
 PRODUCT_PACKAGES += \
-    zram.rc
+    use_memfd.rc
+
+$(call soong_config_set,mainline_common_libinit,set_properties_from,devicetree)
+
+# Input
+PRODUCT_PACKAGES += \
+    ts_vkeys.kl
+
+TARGET_TOUCHSCREEN_HAS_VIRTUAL_KEYS := true
 
 # Kernel
-PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+PRODUCT_PACKAGES += \
+    modules.load.normal
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlays/overlay
+    $(TARGET_DEVICE_PATH)/overlays/overlay
 
-ifeq ($(PRODUCT_IS_ATV),true)
-DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlays/overlay-tv
-endif
+# Partitions
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
-
-ifeq ($(PRODUCT_IS_ATV),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.screen.landscape.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.screen.landscape.xml
-endif
-
-# Scoped Storage
-$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
-
-# Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensor.accelerometer.prebuilt.xml \
-    android.hardware.sensor.compass.prebuilt.xml \
-    android.hardware.sensor.gyroscope.prebuilt.xml \
-    android.hardware.sensor.light.prebuilt.xml \
-    android.hardware.sensor.proximity.prebuilt.xml
-
-# Set device properties
-PRODUCT_PACKAGES += \
-    set_device_prop \
-    set_device_prop.recovery
-
-# Shipping API level
-TARGET_FOLLOWS_LATEST_SHIPPING_API_LEVEL := true
+# SoC
+TARGET_QCOM_SOC_FAMILY := msm8916
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
-
-# VINTF
-TARGET_FOLLOWS_LATEST_VINTF_TARGET_LEVEL := true
+    $(TARGET_DEVICE_PATH) \
+    kernel/mainline/configs

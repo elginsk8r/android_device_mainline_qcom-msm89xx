@@ -3,52 +3,65 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit from mainline/qcom-common
-include device/mainline/qcom-common/BoardConfigMainlineQcomCommon.mk
+# Inherit from parent
+include device/qcom/msm89xx-common/BoardConfigCommon.mk
 
-# Bootloader
-ifneq ($(TARGET_LK2ND_PLATFORM),)
-BOARD_BOOT_HEADER_VERSION := 2
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-TARGET_LK2ND_MAKE_FLAGS := OSVERSION_IN_BOOTIMAGE=1
-endif
+# A/B
+AB_OTA_UPDATER := false
 
 # Boot parameters
-BOARD_KERNEL_CMDLINE := \
-    $(MAINLINE_COMMON_ANDROIDBOOT_PARAMS) \
-    $(MAINLINE_COMMON_KERNEL_PARAMS) \
-    $(MAINLINE_QCOM_KERNEL_PARAMS) \
-    $(MAINLINE_QCOM_SOC_ANDROIDBOOT_PARAMS) \
-    $(MAINLINE_QCOM_SOC_KERNEL_PARAMS) \
-    androidboot.verifiedbootstate=orange \
-    console=tty0
-
-ifneq ($(TARGET_LK2ND_PLATFORM),)
 BOARD_KERNEL_CMDLINE += \
-    lk2nd.pass-ramoops=zap
-endif
-
-BOARD_KERNEL_CMDLINE += \
-    androidboot.selinux=permissive \
-    audit=0
-
-# Filesystem
-TARGET_USERIMAGES_USE_F2FS := true
-TARGET_USERIMAGES_USE_EXT4 := true
+    androidboot.hardware=mi8916
 
 # Kernel
-ifneq ($(TARGET_LK2ND_PLATFORM),)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-endif
+TARGET_KERNEL_SOURCE := kernel/mainline/msm8916-mainline
 
-# Properties
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
+TARGET_DTB_LIST_WILDCARD := \
+    qcom/msm8916-wingtech-wt88047
 
-# Ramdisk
-BOARD_RAMDISK_USE_LZ4 := true
+TARGET_KERNEL_CONFIG := \
+    msm8916_defconfig
 
-# SELinux
-BOARD_ODM_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/sepolicy/odm
+TARGET_KERNEL_CONFIG_EXT := \
+    kernel/mainline/configs/fragments/android-base-pre/common.config \
+    kernel/mainline/configs/fragments/android-base-pre/arm64.config \
+    kernel/configs/b/android-6.12/android-base.config \
+    kernel/mainline/configs/fragments/android-base-conditional/CONFIG_ARM64-y.config \
+    kernel/mainline/configs/fragments/common.config \
+    kernel/mainline/configs/fragments/y/fbcon.config \
+    kernel/mainline/configs/fragments/n/disable-clang-hardening-features.config \
+    kernel/mainline/configs/fragments/n/faster-build-time.config \
+    $(TARGET_DEVICE_PATH)/kconfigs/fixups.config
+
+# Kernel modules
+BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD := \
+    $(strip $(shell cat $(TARGET_DEVICE_PATH)/modprobe/modules.load.basic)) \
+    $(strip $(shell cat $(TARGET_DEVICE_PATH)/modprobe/modules.load.drm)) \
+    $(strip $(shell cat $(TARGET_DEVICE_PATH)/modprobe/modules.load.touchscreen))
+BOARD_VENDOR_KERNEL_MODULES_LOAD := \
+    $(BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD)
+RECOVERY_KERNEL_MODULES := \
+    $(BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD)
+
+TARGET_AUTO_COLLECT_KERNEL_MODULE_DEPS := true
+
+# OTA
+TARGET_OTA_ASSERT_DEVICE := mi8916
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
+BOARD_CACHEIMAGE_PARTITION_SIZE := 335544320
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
+BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 67108864
+BOARD_VENDORIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 67108864
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+
+BOARD_USES_METADATA_PARTITION := true
+TARGET_COPY_OUT_VENDOR := vendor
+
+# Recovery
+TARGET_RECOVERY_DENSITY := xhdpi
+TARGET_RECOVERY_FSTAB := $(TARGET_DEVICE_PATH)/fstab/fstab.mi8916
