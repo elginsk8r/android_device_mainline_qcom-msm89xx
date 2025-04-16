@@ -38,6 +38,9 @@ ifneq ($(TARGET_LK2ND_PLATFORM),)
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 endif
 
+# Platform
+TARGET_BOARD_PLATFORM := msm89xx
+
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 

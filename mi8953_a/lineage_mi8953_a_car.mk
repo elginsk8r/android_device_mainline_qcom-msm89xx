@@ -17,7 +17,7 @@ $(call inherit-product, vendor/lineage/config/common_car.mk)
 
 # Inherit from device
 PRODUCT_IS_AUTOMOTIVE := true
-$(call inherit-product, device/xiaomi/mi89xx-mainline/mi8953_a/device.mk)
+$(call inherit-product, device/mainline/qcom-msm89xx/mi8953_a/device.mk)
 
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \

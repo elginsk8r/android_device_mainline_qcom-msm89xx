@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-import /vendor/etc/init/hw/init.mi89xx.rc
+import /vendor/etc/init/hw/init.msm89xx.rc
 
 # Input (ts_vkeys)
 on property:ro.vendor.device.codename=wt88047

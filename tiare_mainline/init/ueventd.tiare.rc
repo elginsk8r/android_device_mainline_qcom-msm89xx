@@ -3,6 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-import /vendor/etc/ueventd.mi89xx.rc
-
-modalias_handling enabled
+import /vendor/etc/ueventd.msm89xx.rc
