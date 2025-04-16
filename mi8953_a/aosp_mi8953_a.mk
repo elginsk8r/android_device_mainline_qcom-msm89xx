@@ -8,7 +8,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from device
-$(call inherit-product, device/xiaomi/mi89xx-mainline/mi8953_a/device.mk)
+$(call inherit-product, device/mainline/qcom-msm89xx/mi8953_a/device.mk)
 
 PRODUCT_NAME := aosp_mi8953_a
 PRODUCT_DEVICE := mi8953_a

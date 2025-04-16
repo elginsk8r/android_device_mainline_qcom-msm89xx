@@ -13,7 +13,7 @@ $(call inherit-product, vendor/lineage/config/common_tv.mk)
 
 # Inherit from device
 PRODUCT_IS_ATV := true
-$(call inherit-product, device/xiaomi/mi89xx-mainline/mi89x7/device.mk)
+$(call inherit-product, device/mainline/qcom-msm89xx/mi89x7/device.mk)
 
 PRODUCT_CHARACTERISTICS := tv
 

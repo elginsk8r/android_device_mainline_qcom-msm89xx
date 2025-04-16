@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/mi89xx-mainline
+DEVICE_PATH := device/mainline/qcom-msm89xx
 
 # Inherit from mainline/qcom-common
 $(call inherit-product, device/mainline/qcom-common/mainline_qcom-common.mk)
@@ -33,9 +33,9 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    init.mi89xx.rc \
-    init.recovery.mi89xx.rc \
-    ueventd.mi89xx.rc
+    init.msm89xx.rc \
+    init.recovery.msm89xx.rc \
+    ueventd.msm89xx.rc
 
 PRODUCT_PACKAGES += \
     zram.rc

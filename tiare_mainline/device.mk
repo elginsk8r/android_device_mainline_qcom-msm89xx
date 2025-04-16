@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-TARGET_DEVICE_PATH := device/xiaomi/mi89xx-mainline/tiare_mainline
+TARGET_DEVICE_PATH := device/mainline/qcom-msm89xx/tiare_mainline
 
 # Inherit options from mainline/qcom-common
 TARGET_QCOM_SOC := msm8917
@@ -12,7 +12,7 @@ TARGET_SUPPORTS_SUSPEND := false
 include device/mainline/qcom-common/optional/options.mk
 
 # Inherit from parent
-$(call inherit-product, device/xiaomi/mi89xx-mainline/device.mk)
+$(call inherit-product, device/mainline/qcom-msm89xx/device.mk)
 
 # AAPT
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
