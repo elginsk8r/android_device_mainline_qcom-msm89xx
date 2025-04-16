@@ -17,7 +17,7 @@ $(call inherit-product, vendor/lineage/config/common_car.mk)
 
 # Inherit from device
 PRODUCT_IS_AUTOMOTIVE := true
-$(call inherit-product, device/xiaomi/mi89xx-mainline/mi89x7/device.mk)
+$(call inherit-product, device/qcom/msm89xx-common/mi89x7/device.mk)
 
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
@@ -35,7 +35,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Set device properties
-$(call soong_config_set_bool,xiaomi_mi89xx_mainline_set_device_prop,divide_lcd_density_by_two,true)
+$(call soong_config_set_bool,xiaomi_msm89xx_mainline_set_device_prop,divide_lcd_density_by_two,true)
 
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := false
 

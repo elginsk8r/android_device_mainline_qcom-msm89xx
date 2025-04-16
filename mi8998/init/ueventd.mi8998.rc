@@ -3,4 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-import /vendor/etc/ueventd.mi89xx.rc
+import /vendor/etc/ueventd.msm89xx.rc

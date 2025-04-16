@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-TARGET_DEVICE_PATH := device/xiaomi/mi89xx-mainline/mi8998
+TARGET_DEVICE_PATH := device/qcom/msm89xx-common/mi8998
 
 # Inherit from parent
-$(call inherit-product, device/xiaomi/mi89xx-mainline/device.mk)
+$(call inherit-product, device/qcom/msm89xx-common/device.mk)
 
 # AAPT
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
