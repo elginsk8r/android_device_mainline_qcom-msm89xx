@@ -3,6 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-firmware_directories /vendor/firmware_mnt/image/ /odm/firmware/
+firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware-modem/image/ /odm/firmware/
 
 modalias_handling enabled

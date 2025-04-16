@@ -26,6 +26,9 @@ const device_info_t kFallbackDeviceInfo = {
 const std::unordered_map<std::string, device_info_t> kDeviceInfoMap = {
         // clang-format off
 
+    // gt58
+    {"gt58", {160}},
+
     // mi8916
     {"wt88047", {320}},
 
@@ -54,6 +57,10 @@ const std::unordered_map<std::string, device_info_t> kDeviceInfoMap = {
     {"ysl", {280}},
 
         // clang-format on
+};
+
+static const std::array<std::string_view, 3> kSupportedVendors = {
+    "samsung,", "wingtech,", "xiaomi,"
 };
 
 std::vector<std::string> readDtCompatible(const std::string& filename) {
@@ -99,12 +106,16 @@ int main() {
 
     std::string device_codename;
     for (const auto& compatible : compatibles) {
-        if (StartsWith(compatible, "wingtech,") || StartsWith(compatible, "xiaomi,")) {
-            if (!device_codename.empty()) continue;
-            device_codename = compatible.substr(compatible.find_first_of(",") + 1);
-            std::cout << "Device codename: " << device_codename << std::endl;
-            ret &= SetProperty(kPropPrefix + "codename", device_codename);
-        }
+        if (!device_codename.empty()) continue;
+        const bool matches_vendor =
+            std::any_of(kSupportedVendors.begin(), kSupportedVendors.end(),
+                        [&](std::string_view v) {
+                            return StartsWith(compatible, v);
+                        });
+        if (!matches_vendor) continue;
+        device_codename = compatible.substr(compatible.find(',') + 1);
+        std::cout << "Device codename: " << device_codename << std::endl;
+        ret &= SetProperty(kPropPrefix + "codename", device_codename);
     }
 
     if (device_codename.empty()) {
