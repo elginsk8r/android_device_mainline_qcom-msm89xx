@@ -1,0 +1,10 @@
+cm3323.ko
+leds-aw2013.ko
+pm8916_bms_vm.ko
+pm8916_lbc.ko
+smb1360.ko
+max17042_battery.ko
+st_sensors.ko
+st_sensors_i2c.ko
+st_accel.ko
+st_accel_i2c.ko

@@ -8,6 +8,7 @@ BUILD_TYPES := user userdebug eng
 BUILD_VARIANTS := car tv
 
 SUPPORTED_DEVICES := \
+    gt58 \
     mi8916 \
     mi8953_a \
     mi89x7 \

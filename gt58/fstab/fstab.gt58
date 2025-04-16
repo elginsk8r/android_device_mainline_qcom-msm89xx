@@ -1,0 +1,44 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Boot
+/dev/block/by-name/hidden /boot emmc defaults defaults
+
+# EFS
+/dev/block/by-name/efs /mnt/vendor/efs ext4 noatime,nosuid,nodev,noauto_da_alloc,journal_async_commit,errors=panic wait,check
+
+# Firmware
+/dev/block/by-name/apnhlos /vendor/firmware_mnt vfat ro,shortname=lower,uid=1000,gid=1026,dmask=227,fmask=3370,context=u:object_r:firmware_mnt_file:s0 wait
+
+# Metadata
+/dev/block/by-name/backup /metadata ext4 nodev,noatime,nosuid,discard,data=journal,commit=1 check,formattable,first_stage_mount,metadata_csum
+
+# Misc
+/dev/block/by-name/fota /misc emmc defaults defaults
+
+# Modem
+/dev/block/by-name/modem /vendor/firmware-modem vfat ro,shortname=lower,uid=1000,gid=1026,dmask=227,fmask=337,context=u:object_r:firmware_mnt_file:s0 wait
+
+# Persist
+/dev/block/by-name/persist /mnt/vendor/persist ext4 noatime,nosuid,nodev,barrier=1,noauto_da_alloc wait
+
+# SDcard
+/devices/platform/soc@0/7864900.mmc/mmc_host/mmc* auto auto defaults voldmanaged=sdcard:auto,encryptable=userdata,noemulatedsd
+
+# System
+/dev/block/by-name/system /system ext4 ro,barrier=1 wait,check,first_stage_mount
+
+# USB
+/devices/platform/soc@0/78d9000.usb/*/usb* auto auto defaults voldmanaged=usb:auto,noemulatedsd
+
+# Userdata
+/dev/block/by-name/userdata /data ext4 nodev,noatime,nosuid,discard latemount,check,quota,formattable
+/dev/block/by-name/userdata /data f2fs nodev,noatime,nosuid,discard,reserve_root=32768 latemount,check,quota,formattable
+
+# Vendor
+/dev/block/by-name/cache /vendor ext4 ro,barrier=1 wait,check,first_stage_mount
+
+# ZRAM
+/dev/block/zram0 none swap defaults zramsize=25%

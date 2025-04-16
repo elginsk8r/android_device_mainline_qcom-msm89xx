@@ -1,0 +1,1 @@
+require board=gt58|gt58lte|gt58wifi|gt510|gt510lte|gt510wifi|lk2nd-msm8916
