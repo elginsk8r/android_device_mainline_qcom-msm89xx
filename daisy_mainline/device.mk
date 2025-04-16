@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-TARGET_DEVICE_PATH := device/xiaomi/mi89xx-mainline/daisy_mainline
+TARGET_DEVICE_PATH := device/qcom/msm89xx-common/daisy_mainline
 
 # Inherit from parent
-$(call inherit-product, device/xiaomi/mi89xx-mainline/device.mk)
+$(call inherit-product, device/qcom/msm89xx-common/device.mk)
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -72,5 +72,5 @@ TARGET_QCOM_SOC := msm8953
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(TARGET_DEVICE_PATH) \
-    device/xiaomi/mi89xx-mainline/mi8953_a \
+    device/qcom/msm89xx-common/mi8953_a \
     kernel/mainline/configs
