@@ -4,21 +4,21 @@
 //
 
 prebuilt_etc {
-    name: "init.mi8916.rc",
-    src: "init.mi8916.rc",
+    name: "init.gt58.rc",
+    src: "init.gt58.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "init.recovery.mi8916.rc",
-    src: "init.recovery.mi8916.rc",
+    name: "init.recovery.gt58.rc",
+    src: "init.recovery.gt58.rc",
     sub_dir: "init",
     recovery: true,
 }
 
 prebuilt_etc {
-    name: "ueventd.mi8916.rc",
-    src: "ueventd.mi8916.rc",
+    name: "ueventd.gt58.rc",
+    src: "ueventd.gt58.rc",
     vendor: true,
 }

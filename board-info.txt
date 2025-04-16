@@ -1,1 +1,1 @@
-require board=mi8916
+require board=gt58|gt58lte|gt58wifi|lk2nd-msm8916

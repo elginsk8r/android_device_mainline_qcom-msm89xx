@@ -11,13 +11,13 @@ AB_OTA_UPDATER := false
 
 # Boot parameters
 BOARD_KERNEL_CMDLINE += \
-    androidboot.hardware=mi8916
+    androidboot.hardware=gt58
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/mainline/msm8916-mainline
 
 TARGET_DTB_LIST_WILDCARD := \
-    qcom/msm8916-wingtech-wt88047
+    qcom/msm8916-samsung-gt58
 
 TARGET_KERNEL_CONFIG := \
     msm8916_defconfig
@@ -46,7 +46,7 @@ RECOVERY_KERNEL_MODULES := \
 TARGET_AUTO_COLLECT_KERNEL_MODULE_DEPS := true
 
 # OTA
-TARGET_OTA_ASSERT_DEVICE := mi8916
+TARGET_OTA_ASSERT_DEVICE := gt58
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
@@ -63,5 +63,5 @@ BOARD_USES_METADATA_PARTITION := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
-TARGET_RECOVERY_DENSITY := xhdpi
-TARGET_RECOVERY_FSTAB := $(TARGET_DEVICE_PATH)/fstab/fstab.mi8916
+TARGET_RECOVERY_DENSITY := mdpi
+TARGET_RECOVERY_FSTAB := $(TARGET_DEVICE_PATH)/fstab/fstab.gt58

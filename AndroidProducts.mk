@@ -4,9 +4,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    aosp_mi8916:$(LOCAL_DIR)/aosp_mi8916.mk \
-    lineage_mi8916:$(LOCAL_DIR)/lineage_mi8916.mk
+    aosp_gt58:$(LOCAL_DIR)/aosp_gt58.mk \
+    lineage_gt58:$(LOCAL_DIR)/lineage_gt58.mk
 
 $(foreach build_type, user userdebug eng, \
-    $(eval COMMON_LUNCH_CHOICES += aosp_mi8916-$(build_type)) \
-    $(eval COMMON_LUNCH_CHOICES += lineage_mi8916-$(build_type)))
+    $(eval COMMON_LUNCH_CHOICES += aosp_gt58-$(build_type)) \
+    $(eval COMMON_LUNCH_CHOICES += lineage_gt58-$(build_type)))

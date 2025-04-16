@@ -8,10 +8,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from device
-$(call inherit-product, device/xiaomi/mi8916/device.mk)
+$(call inherit-product, device/samsung/gt58/device.mk)
 
-PRODUCT_NAME := aosp_mi8916
-PRODUCT_DEVICE := mi8916
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_NAME := aosp_gt58
+PRODUCT_DEVICE := gt58
+PRODUCT_BRAND := Samsung
+PRODUCT_MANUFACTURER := Samsung
 PRODUCT_MODEL := MSM8916

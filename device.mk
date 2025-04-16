@@ -3,32 +3,32 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-TARGET_DEVICE_PATH := device/xiaomi/mi8916
+TARGET_DEVICE_PATH := device/samsung/gt58
 
 # Inherit from parent
 $(call inherit-product, device/qcom/msm89xx-common/common.mk)
 
 # AAPT
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Audio
 TARGET_AUDIO_MAINLINE_UCM_PROFILES := wt88047
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1024
+TARGET_SCREEN_WIDTH := 768
 
 # Dalvik heap
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Init
 PRODUCT_PACKAGES += \
-    fstab.mi8916 \
-    fstab.mi8916.ramdisk \
-    init.mi8916.rc \
-    init.recovery.mi8916.rc \
-    ueventd.mi8916.rc
+    fstab.gt58 \
+    fstab.gt58.ramdisk \
+    init.gt58.rc \
+    init.recovery.gt58.rc \
+    ueventd.gt58.rc
 
 PRODUCT_PACKAGES += \
     use_memfd.rc

@@ -4,8 +4,8 @@
 //
 
 prebuilt_etc {
-    name: "fstab.mi8916",
-    src: "fstab.mi8916",
+    name: "fstab.gt58",
+    src: "fstab.gt58",
     vendor: true,
     ramdisk_available: true,
 }
