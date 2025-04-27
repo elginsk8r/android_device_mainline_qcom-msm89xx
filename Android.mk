@@ -4,7 +4,3 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-
-ifeq ($(USES_DEVICE_XIAOMI_MI89XX),true)
-
-endif
