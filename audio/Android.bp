@@ -1,0 +1,76 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "audio.mi8953_a.xml",
+    src: "audio.mi8953_a.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.mi8916.xml",
+    src: "audio.mi8916.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.mi89x7.xml",
+    src: "audio.mi89x7.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.tiare_mainline.xml",
+    src: "audio.tiare_mainline.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.wt88047.xml",
+    src: "audio.wt88047.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.xiaomi-daisy.xml",
+    src: "audio.xiaomi-daisy.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.xiaomi-mido.xml",
+    src: "audio.xiaomi-mido.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.xiaomi-onclite.xml",
+    src: "audio.xiaomi-onclite.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.xiaomi-riva.xml",
+    src: "audio.xiaomi-riva.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.xiaomi-santoni.xml",
+    src: "audio.xiaomi-santoni.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.xiaomi-ugg.xml",
+    src: "audio.xiaomi-ugg.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "audio.xiaomi-vince.xml",
+    src: "audio.xiaomi-vince.xml",
+    vendor: true,
+}
