@@ -27,6 +27,10 @@ endif
 # Bootanimation
 TARGET_BOOTANIMATION_HALF_RES := true
 
+# Firmware
+PRODUCT_PACKAGES += \
+    all_symlink_firmware_msm89xx
+
 # HIDL
 PRODUCT_PACKAGES += \
     vndservicemanager
