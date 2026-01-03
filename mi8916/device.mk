@@ -18,8 +18,9 @@ $(call inherit-product, device/mainline/qcom-msm89xx/device.mk)
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Audio
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*.xml,$(TARGET_DEVICE_PATH)/audio/,$(TARGET_COPY_OUT_VENDOR)/etc/)
+PRODUCT_PACKAGES += \
+    audio.mi8916.xml \
+    audio.wt88047.xml
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
