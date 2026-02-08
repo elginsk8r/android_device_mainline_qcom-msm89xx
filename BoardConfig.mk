@@ -6,12 +6,12 @@
 # Inherit from mainline/qcom-common
 include device/mainline/qcom-common/BoardConfigMainlineQcomCommon.mk
 
+# Bootimage
+BOARD_BOOT_HEADER_VERSION := 2
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+
 # Bootloader
 ifneq ($(TARGET_LK2ND_PLATFORM),)
-BOARD_BOOT_HEADER_VERSION := 2
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_LK2ND_MAKE_FLAGS := OSVERSION_IN_BOOTIMAGE=1
 endif
 
@@ -34,9 +34,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Kernel
-ifneq ($(TARGET_LK2ND_PLATFORM),)
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-endif
 
 # Platform
 TARGET_BOARD_PLATFORM := msm89xx
