@@ -3,6 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Bootimage
+BOARD_CUSTOM_BOOTIMG := true
+
 # Inherit from parent
 include device/mainline/qcom-msm89xx/BoardConfig.mk
 
