@@ -17,6 +17,11 @@ $(call inherit-product, device/mainline/qcom-msm89xx/device.mk)
 # AAPT
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio.gt58.xml \
+    audio.tfa989x.xml
+
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
 TARGET_SCREEN_HEIGHT := 1024

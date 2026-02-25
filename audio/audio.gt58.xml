@@ -1,0 +1,5 @@
+<audiohal>
+    <codec_probe file="/proc/asound/card0/id">
+        <case name="gt58" file="audio.tfa989x.xml" />
+    </codec_probe>
+</audiohal>
