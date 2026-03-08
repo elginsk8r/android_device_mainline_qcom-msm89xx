@@ -7,7 +7,7 @@ TARGET_DEVICE_PATH := device/mainline/qcom-msm89xx/mi89x7
 
 # Inherit options from mainline/qcom-common
 TARGET_HAS_IR := true
-TARGET_QCOM_SOC_FAMILY := msm8937
+TARGET_QCOM_SOC := msm8937
 ## TODO: Bringup the corresponding hardware and remove the following definitions
 TARGET_LIGHT_HAL := none
 TARGET_SUPPORTS_SUSPEND := false

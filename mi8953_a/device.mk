@@ -7,7 +7,7 @@ TARGET_DEVICE_PATH := device/mainline/qcom-msm89xx/mi8953_a
 
 # Inherit options from mainline/qcom-common
 TARGET_HAS_IR := true
-TARGET_QCOM_SOC_FAMILY := msm8953
+TARGET_QCOM_SOC := msm8953
 TARGET_SENSORS_HAL := iio
 ## TODO: Bringup the corresponding hardware and remove the following definitions
 TARGET_SUPPORTS_SUSPEND := false
