@@ -27,19 +27,12 @@ PRODUCT_PACKAGES += \
     fstab.gt58 \
     fstab.gt58.ramdisk \
     init.gt58.rc \
-    init.recovery.gt58.rc \
     ueventd.gt58.rc
 
 PRODUCT_PACKAGES += \
     use_memfd.rc
 
 $(call soong_config_set,mainline_common_libinit,set_properties_from,devicetree)
-
-# Input
-PRODUCT_PACKAGES += \
-    ts_vkeys.kl
-
-TARGET_TOUCHSCREEN_HAS_VIRTUAL_KEYS := true
 
 # Kernel
 PRODUCT_PACKAGES += \

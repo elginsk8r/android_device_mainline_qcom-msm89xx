@@ -11,13 +11,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.recovery.gt58.rc",
-    src: "init.recovery.gt58.rc",
-    sub_dir: "init",
-    recovery: true,
-}
-
-prebuilt_etc {
     name: "ueventd.gt58.rc",
     src: "ueventd.gt58.rc",
     vendor: true,
