@@ -12,7 +12,7 @@ $(call inherit-product, device/qcom/msm89xx-common/common.mk)
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Audio
-TARGET_AUDIO_MAINLINE_UCM_PROFILES := wt88047
+TARGET_AUDIO_MAINLINE_UCM_PROFILES := samsung-j5chn
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true

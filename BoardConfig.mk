@@ -19,7 +19,7 @@ BOARD_KERNEL_CMDLINE += \
 
 # Kernel
 TARGET_DTB_LIST_WILDCARD := \
-    qcom/msm8916-samsung-gt58
+    msm8916-samsung-gt58
 
 # Kernel modules
 BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD := \
