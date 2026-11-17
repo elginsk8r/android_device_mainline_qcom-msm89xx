@@ -37,9 +37,6 @@ PRODUCT_PACKAGES += \
     init.gt58.rc \
     ueventd.gt58.rc
 
-PRODUCT_PACKAGES += \
-    use_memfd.rc
-
 $(call soong_config_set,mainline_common_libinit,set_properties_from,devicetree)
 
 # Kernel
@@ -60,5 +57,4 @@ TARGET_QCOM_SOC_FAMILY := msm8916
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(TARGET_DEVICE_PATH) \
-    kernel/mainline/configs
+    $(TARGET_DEVICE_PATH)
